@@ -1,32 +1,473 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Statue.tscn" type="PackedScene" id=2]
-
-[sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.960784, 0.454902, 0.952941, 1 )
-metallic = 0.07
-roughness = 0.3
-
-[sub_resource type="PlaneMesh" id=2]
-material = SubResource( 1 )
-size = Vector2( 20, 20 )
-
-[sub_resource type="ConcavePolygonShape" id=3]
-data = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10 )
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/WallTall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Celing1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Celing2.tscn" type="PackedScene" id=6]
 
 [node name="Node3D" type="Spatial"]
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 2 )
-
-[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
-
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
-shape = SubResource( 3 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59212, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65529, 0 )
 
 [node name="KinematicBody" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.40826, 1.75224, -4.74565 )
+
+[node name="FloorGroup" type="Spatial" parent="."]
+
+[node name="Floor" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5 )
+
+[node name="Floor2" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5 )
+
+[node name="Floor3" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5 )
+
+[node name="Floor4" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5 )
+
+[node name="Floor5" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 1.5 )
+
+[node name="Floor6" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -1.5 )
+
+[node name="Floor7" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 1.5 )
+
+[node name="Floor8" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -1.5 )
+
+[node name="Floor9" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -4.5 )
+
+[node name="Floor10" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -7.5 )
+
+[node name="Floor11" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -4.5 )
+
+[node name="Floor12" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -7.5 )
+
+[node name="Floor13" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -4.5 )
+
+[node name="Floor14" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -7.5 )
+
+[node name="Floor15" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -4.5 )
+
+[node name="Floor16" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -7.5 )
+
+[node name="Floor17" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 13.5 )
+
+[node name="Floor18" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 10.5 )
+
+[node name="Floor19" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 13.5 )
+
+[node name="Floor20" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 10.5 )
+
+[node name="Floor21" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 13.5 )
+
+[node name="Floor22" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 10.5 )
+
+[node name="Floor23" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 13.5 )
+
+[node name="Floor24" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 10.5 )
+
+[node name="Floor25" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 7.5 )
+
+[node name="Floor26" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 4.5 )
+
+[node name="Floor27" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 7.5 )
+
+[node name="Floor28" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 4.5 )
+
+[node name="Floor29" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 7.5 )
+
+[node name="Floor30" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 4.5 )
+
+[node name="Floor31" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 7.5 )
+
+[node name="Floor32" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 4.5 )
+
+[node name="Floor33" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 1.5 )
+
+[node name="Floor34" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, -1.5 )
+
+[node name="Floor35" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, 1.5 )
+
+[node name="Floor36" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, -1.5 )
+
+[node name="Floor37" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 1.5 )
+
+[node name="Floor38" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.5 )
+
+[node name="Floor39" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 1.5 )
+
+[node name="Floor40" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -1.5 )
+
+[node name="Floor41" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, -4.5 )
+
+[node name="Floor42" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, -7.5 )
+
+[node name="Floor43" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, -4.5 )
+
+[node name="Floor44" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, -7.5 )
+
+[node name="Floor45" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -4.5 )
+
+[node name="Floor46" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -7.5 )
+
+[node name="Floor47" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -4.5 )
+
+[node name="Floor48" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -7.5 )
+
+[node name="Floor49" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 13.5 )
+
+[node name="Floor50" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 10.5 )
+
+[node name="Floor51" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, 13.5 )
+
+[node name="Floor52" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, 10.5 )
+
+[node name="Floor53" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 13.5 )
+
+[node name="Floor54" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 10.5 )
+
+[node name="Floor55" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 13.5 )
+
+[node name="Floor56" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 10.5 )
+
+[node name="Floor57" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 7.5 )
+
+[node name="Floor58" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 4.5 )
+
+[node name="Floor59" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, 7.5 )
+
+[node name="Floor60" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 0, 4.5 )
+
+[node name="Floor61" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 7.5 )
+
+[node name="Floor62" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5 )
+
+[node name="Floor63" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 7.5 )
+
+[node name="Floor64" parent="FloorGroup" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 4.5 )
+
+[node name="WallGroup" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, -8.92143 )
+
+[node name="WallTall" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0 )
+
+[node name="WallTall2" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0 )
+
+[node name="WallTall3" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0 )
+
+[node name="WallTall4" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+
+[node name="WallTall5" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0 )
+
+[node name="WallTall6" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="WallTall7" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
+
+[node name="WallTall8" parent="WallGroup" instance=ExtResource( 4 )]
+
+[node name="WallTall19" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5, 0, 22.5 )
+
+[node name="WallTall20" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5, 0, 13.5 )
+
+[node name="WallTall21" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5, 0, 10.5 )
+
+[node name="WallTall22" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5, 0, 1.5 )
+
+[node name="WallTall13" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -21, 0, 24 )
+
+[node name="WallTall14" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -18, 0, 24 )
+
+[node name="WallTall15" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -15, 0, 24 )
+
+[node name="WallTall16" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -6, 0, 24 )
+
+[node name="WallTall17" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -3, 0, 24 )
+
+[node name="WallTall18" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 24 )
+
+[node name="WallTall9" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 0, 7.5 )
+
+[node name="WallTall10" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 0, 10.5 )
+
+[node name="WallTall11" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 0, 13.5 )
+
+[node name="WallTall12" parent="WallGroup" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 0, 16.5 )
+
+[node name="CelingGroup" type="Spatial" parent="."]
+visible = false
+
+[node name="Celing1" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, 4.5 )
+
+[node name="Celing6" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, 1.5 )
+
+[node name="Celing7" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5, 4.5 )
+
+[node name="Celing8" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5, 1.5 )
+
+[node name="Celing9" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, -1.5 )
+
+[node name="Celing10" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, -4.5 )
+
+[node name="Celing11" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5, -1.5 )
+
+[node name="Celing12" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5, -4.5 )
+
+[node name="Celing21" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, -1.5 )
+
+[node name="Celing22" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, -4.5 )
+
+[node name="Celing23" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, -1.5 )
+
+[node name="Celing24" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, -4.5 )
+
+[node name="Celing13" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 5, 4.5 )
+
+[node name="Celing14" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 5, 1.5 )
+
+[node name="Celing15" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, 4.5 )
+
+[node name="Celing16" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, 1.5 )
+
+[node name="Celing17" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 5, -1.5 )
+
+[node name="Celing18" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 5, -4.5 )
+
+[node name="Celing19" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, -1.5 )
+
+[node name="Celing20" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, -4.5 )
+
+[node name="Celing25" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, 10.5 )
+
+[node name="Celing26" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, 7.5 )
+
+[node name="Celing27" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5, 10.5 )
+
+[node name="Celing28" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5, 7.5 )
+
+[node name="Celing43" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5, 4.5 )
+
+[node name="Celing44" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5, 1.5 )
+
+[node name="Celing45" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5, -1.5 )
+
+[node name="Celing46" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5, -4.5 )
+
+[node name="Celing47" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5, 10.5 )
+
+[node name="Celing48" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5, 7.5 )
+
+[node name="Celing29" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, 10.5 )
+
+[node name="Celing30" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, 7.5 )
+
+[node name="Celing31" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, 10.5 )
+
+[node name="Celing32" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, 7.5 )
+
+[node name="Celing33" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 5, 10.5 )
+
+[node name="Celing34" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 5, 7.5 )
+
+[node name="Celing37" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, 4.5 )
+
+[node name="Celing38" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, 1.5 )
+
+[node name="Celing39" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, -1.5 )
+
+[node name="Celing40" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, -4.5 )
+
+[node name="Celing49" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, -7.5 )
+
+[node name="Celing50" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5, -7.5 )
+
+[node name="Celing51" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, -7.5 )
+
+[node name="Celing52" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, -7.5 )
+
+[node name="Celing53" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 5, -7.5 )
+
+[node name="Celing54" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, -7.5 )
+
+[node name="Celing55" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5, -7.5 )
+
+[node name="Celing56" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, -7.5 )
+
+[node name="Celing57" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, 13.5 )
+
+[node name="Celing58" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5, 13.5 )
+
+[node name="Celing59" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, 13.5 )
+
+[node name="Celing60" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, 13.5 )
+
+[node name="Celing61" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 5, 13.5 )
+
+[node name="Celing62" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, 13.5 )
+
+[node name="Celing63" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5, 13.5 )
+
+[node name="Celing64" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, 13.5 )
+
+[node name="Celing41" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, 10.5 )
+
+[node name="Celing42" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 5, 7.5 )
+
+[node name="Celing35" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, 10.5 )
+
+[node name="Celing36" parent="CelingGroup" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5, 7.5 )
+
+[node name="Celing2" parent="CelingGroup" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, 1.5 )
+
+[node name="Celing3" parent="CelingGroup" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, 1.5 )
+
+[node name="Celing4" parent="CelingGroup" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5, 4.5 )
+
+[node name="Celing5" parent="CelingGroup" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5, 4.5 )
