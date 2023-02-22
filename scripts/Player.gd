@@ -1,4 +1,4 @@
-extends KinematicBody
+ extends KinematicBody
 
 var speed = 10
 
@@ -24,6 +24,14 @@ func _input(event) -> void:
         head.rotate_x(deg2rad(-event.relative.y * sensitivity))
         
         head.rotation.x = clamp(head.rotation.x, deg2rad(-90), deg2rad(90))
+        
+    if Input.is_action_just_pressed("interact"):
+        print_debug("interact pressed")
+        var collider = $Head/Camera/RayCast.get_collider()
+        if collider != null:
+            if collider.is_in_group("interactable"):
+                collider.interact()
+                print_debug("interact called")
 
 func _physics_process(delta: float) -> void:
     direction = Vector3.ZERO

@@ -8,6 +8,7 @@ data = PoolVector3Array( -1.5, 2.5, -0.0333, -1.5, -2.5, -0.0333, 1.5, 2.5, -0.0
 [node name="WallTall" type="Spatial"]
 
 [node name="wallTall" type="MeshInstance" parent="."]
+use_in_baked_light = true
 mesh = ExtResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="wallTall"]

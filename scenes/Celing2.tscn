@@ -18,5 +18,6 @@ mesh = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
+visible = false
 extents = Vector3( 2, 1, 2 )
 light_data = ExtResource( 2 )
