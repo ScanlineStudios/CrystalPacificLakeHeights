@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/DoubleDoor.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Environment" id=1]
+background_energy = 0.0
 ambient_light_energy = 0.0
 ambient_light_sky_contribution = 0.0
 fog_enabled = true
