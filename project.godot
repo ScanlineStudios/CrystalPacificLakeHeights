@@ -13,6 +13,10 @@ config_version=4
 config/name="CrystalPacificLakeHeights"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
