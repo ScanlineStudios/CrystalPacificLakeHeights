@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cjm52thgih6sv"
+path="res://.godot/imported/celing2.obj-a3f716868d70e9cd1371e7339e449bed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/celing2.obj-a3f716868d70e9cd1371e7339e449bed.mesh"]
+
+source_file="res://placeHolders/models/celing2.obj"
+dest_files=["res://.godot/imported/celing2.obj-a3f716868d70e9cd1371e7339e449bed.mesh", "res://.godot/imported/celing2.obj-a3f716868d70e9cd1371e7339e449bed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

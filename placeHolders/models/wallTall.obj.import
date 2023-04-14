@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ddpxlexavtmar"
+path="res://.godot/imported/wallTall.obj-4fb4db4637f2a0ba16ce975e8557352a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallTall.obj-4fb4db4637f2a0ba16ce975e8557352a.mesh"]
+
+source_file="res://placeHolders/models/wallTall.obj"
+dest_files=["res://.godot/imported/wallTall.obj-4fb4db4637f2a0ba16ce975e8557352a.mesh", "res://.godot/imported/wallTall.obj-4fb4db4637f2a0ba16ce975e8557352a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

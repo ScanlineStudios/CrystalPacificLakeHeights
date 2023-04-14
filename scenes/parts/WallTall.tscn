@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvxp14ddm4262"]
+
+[ext_resource type="Texture2D" uid="uid://d30yax0wjiu6y" path="res://placeHolders/textures/marble.jpg" id="1_iwk1p"]
+[ext_resource type="ArrayMesh" uid="uid://ddpxlexavtmar" path="res://placeHolders/models/wallTall.obj" id="2_i7mqd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4d8i"]
+albedo_texture = ExtResource("1_iwk1p")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ppxkj"]
+data = PackedVector3Array(-1.5, 2.5, -0.0333, -1.5, -2.5, -0.0333, 1.5, 2.5, -0.0333, 1.5, 2.5, -0.0333, -1.5, -2.5, -0.0333, 1.5, -2.5, -0.0333, 1.5, 2.5, -0.0333, 1.5, -2.5, -0.0333, 1.5, 2.5, 0.0667, 1.5, 2.5, 0.0667, 1.5, -2.5, -0.0333, 1.5, -2.5, 0.0667, 1.5, 2.5, -0.0333, 1.5, -2.5, -0.0333, 1.5, 2.5, -0.0333, 1.5, 2.5, -0.0333, 1.5, -2.5, -0.0333, 1.5, -2.5, -0.0333, -1.5, -2.5, -0.0333, -1.5, 2.5, -0.0333, -1.5, -2.5, -0.0333, -1.5, -2.5, -0.0333, -1.5, 2.5, -0.0333, -1.5, 2.5, -0.0333, -1.5, 2.5, -0.0333, 1.5, 2.5, -0.0333, -1.5, 2.5, -0.0333, -1.5, 2.5, -0.0333, 1.5, 2.5, -0.0333, 1.5, 2.5, -0.0333, 1.5, -2.5, -0.0333, -1.5, -2.5, -0.0333, 1.5, -2.5, -0.0333, 1.5, -2.5, -0.0333, -1.5, -2.5, -0.0333, -1.5, -2.5, -0.0333, 1.5, -2.5, 0.0667, -1.5, -2.5, 0.0667, 1.5, 2.5, 0.0667, 1.5, 2.5, 0.0667, -1.5, -2.5, 0.0667, -1.5, 2.5, 0.0667, -1.5, -2.5, -0.0333, -1.5, 2.5, -0.0333, -1.5, -2.5, 0.0667, -1.5, -2.5, 0.0667, -1.5, 2.5, -0.0333, -1.5, 2.5, 0.0667, -1.5, 2.5, -0.0333, 1.5, 2.5, -0.0333, -1.5, 2.5, 0.0667, -1.5, 2.5, 0.0667, 1.5, 2.5, -0.0333, 1.5, 2.5, 0.0667, 1.5, -2.5, -0.0333, -1.5, -2.5, -0.0333, 1.5, -2.5, 0.0667, 1.5, -2.5, 0.0667, -1.5, -2.5, -0.0333, -1.5, -2.5, 0.0667)
+
+[node name="WallTall" type="Node3D"]
+
+[node name="WallTall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+material_override = SubResource("StandardMaterial3D_f4d8i")
+mesh = ExtResource("2_i7mqd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallTall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallTall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ppxkj")

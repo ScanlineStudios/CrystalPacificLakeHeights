@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6qd61w6cbffm"]
+
+[ext_resource type="Texture2D" uid="uid://c1r8pnaymd0wo" path="res://placeHolders/textures/hexBlur.jpg" id="1_mf202"]
+[ext_resource type="ArrayMesh" uid="uid://rbfn4v0xqf20" path="res://placeHolders/models/celing1.obj" id="2_3eu4f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0ab4"]
+albedo_texture = ExtResource("1_mf202")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d01rw"]
+data = PackedVector3Array(-1.5, -0.0333, -1.5, -1.5, -0.0333, 1.5, 1.5, -0.0333, -1.5, 1.5, -0.0333, -1.5, -1.5, -0.0333, 1.5, 1.5, -0.0333, 1.5, 1.5, -0.0333, 1.5, -1.5, -0.0333, 1.5, 1.5, 0.0667, 1.5, 1.5, 0.0667, 1.5, -1.5, -0.0333, 1.5, -1.5, 0.0667, 1.5, -1.5, -0.0333, -1.5, 1.5, -0.0333, -1.5, -1.5, -0.0333, -1.5, -1.5, -0.0333, -1.5, 1.5, -0.0333, -1.5, 1.5, -0.0333, -1.5, 1.5, -0.0333, 1.5, -1.5, -0.0333, 1.5, 1.5, -0.0333, 1.5, 1.5, -0.0333, 1.5, -1.5, -0.0333, 1.5, -1.5, -0.0333, 1.5, 1.5, -0.0333, -1.5, 1.5, -0.0333, 1.5, 1.5, -0.0333, -1.5, 1.5, -0.0333, -1.5, 1.5, -0.0333, 1.5, 1.5, -0.0333, 1.5, -1.5, -0.0333, 1.5, -1.5, -0.0333, -1.5, -1.5, -0.0333, 1.5, -1.5, -0.0333, 1.5, -1.5, -0.0333, -1.5, -1.5, -0.0333, -1.5, 1.5, 0.0667, 1.5, -1.5, 0.0667, 1.5, 1.5, 0.0667, -1.5, 1.5, 0.0667, -1.5, -1.5, 0.0667, 1.5, -1.5, 0.0667, -1.5, 1.5, -0.0333, -1.5, 1.5, -0.0333, 1.5, 1.5, 0.0667, -1.5, 1.5, 0.0667, -1.5, 1.5, -0.0333, 1.5, 1.5, 0.0667, 1.5, -1.5, -0.0333, 1.5, -1.5, -0.0333, -1.5, -1.5, 0.0667, 1.5, -1.5, 0.0667, 1.5, -1.5, -0.0333, -1.5, -1.5, 0.0667, -1.5, -1.5, -0.0333, -1.5, 1.5, -0.0333, -1.5, -1.5, 0.0667, -1.5, -1.5, 0.0667, -1.5, 1.5, -0.0333, -1.5, 1.5, 0.0667, -1.5)
+
+[node name="Celing1" type="Node3D"]
+
+[node name="Celing1" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_d0ab4")
+mesh = ExtResource("2_3eu4f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Celing1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Celing1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d01rw")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2c4vxoejn875"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ec4t4"]
+size = Vector3(1, 2, 0.1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dbebd"]
+points = PackedVector3Array(-0.5, -1, -0.05, -0.5, -1, 0.05, -0.5, 1, -0.05, 0.5, -1, -0.05, 0.5, -1, 0.05, -0.5, 1, 0.05, 0.5, 1, -0.05, 0.5, 1, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rccm"]
+albedo_color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fd12h"]
+material = SubResource("StandardMaterial3D_5rccm")
+size = Vector3(0.1, 2, 0.1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o0f3t"]
+points = PackedVector3Array(-0.05, -1, -0.05, -0.05, -1, 0.05, -0.05, 1, -0.05, 0.05, -1, -0.05, 0.05, -1, 0.05, -0.05, 1, 0.05, 0.05, 1, -0.05, 0.05, 1, 0.05)
+
+[node name="Door" type="Node3D" groups=["interactable"]]
+
+[node name="PhysicsDoor" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0)
+collision_layer = 8
+collision_mask = 15
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PhysicsDoor"]
+mesh = SubResource("BoxMesh_ec4t4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicsDoor"]
+shape = SubResource("ConvexPolygonShape3D_dbebd")
+
+[node name="DoorFrame" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554553, 0, 0)
+mesh = SubResource("BoxMesh_fd12h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554553, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_o0f3t")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+node_a = NodePath("../PhysicsDoor")
+node_b = NodePath("../DoorFrame")
+angular_limit/enable = true
+angular_limit/bias = 0.01
