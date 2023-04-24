@@ -19,6 +19,7 @@ sky_material = SubResource("ProceduralSkyMaterial_t8b5s")
 [sub_resource type="Environment" id="Environment_xpgfg"]
 background_mode = 2
 sky = SubResource("Sky_u3prm")
+ambient_light_sky_contribution = 0.17
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
@@ -33,6 +34,7 @@ script = ExtResource("1_0cir2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.924546, 0.0451203, -0.37839, 0, 0.992966, 0.118404, 0.38107, 0.10947, -0.918042, 0, 0, 0)
+light_color = Color(0.168627, 0.4, 0.443137, 1)
 light_energy = 0.39
 light_indirect_energy = 0.086
 light_volumetric_fog_energy = 0.696
@@ -754,3 +756,21 @@ transform = Transform3D(-2.75, 0, -4.15238e-07, 0, 2, 0, 4.15238e-07, 0, -2.75, 
 
 [node name="Floor120" parent="Shop1" instance=ExtResource("1_c7ma5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6, 0, 16.4)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2011, 2.60578, 0.671902)
+light_color = Color(0, 1, 1, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4161, 2.60578, 7.73077)
+light_color = Color(0.992157, 0.266667, 0.937255, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.34865, 3.37565, 13.6753)
+light_color = Color(0.992157, 1, 0.937255, 1)
+light_energy = 0.515
+light_size = 0.293
+light_specular = 0.533
+omni_range = 5.53384
