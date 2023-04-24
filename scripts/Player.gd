@@ -4,12 +4,12 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var sensitivity = 0.007
-var forceStrength = 2
-var maxInteractDistance = 2.5
+var force_strength = 2
+var max_interact_distance = 2.5
 
-var isHoldingObject = false
+var is_holding_object = false
 # Held object in physics interaction
-var heldObject = null
+var held_object = null
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -54,33 +54,33 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		interact()
 		
-	maintainInteraction()
+	maintain_interaction()
 
 # Apply a force to an object
 func interact() -> void:
-	if !isHoldingObject:
+	if !is_holding_object:
 		$Neck/Camera3D/PhysicsRayCast.force_raycast_update()
 		
 		if $Neck/Camera3D/PhysicsRayCast.is_colliding():
 			var colider = $Neck/Camera3D/PhysicsRayCast.get_collider()
 			if colider.is_in_group("interactable"):
-				isHoldingObject = true
-				heldObject = colider
+				is_holding_object = true
+				held_object = colider
 				
 	else:
-		isHoldingObject = false
-		heldObject = null
+		is_holding_object = false
+		held_object = null
 
-func maintainInteraction() -> void:
-	if isHoldingObject and heldObject != null:
-		var forceDirection = $Neck/Camera3D/InteractPos.global_transform.origin \
-			- heldObject.global_transform.origin
-		forceDirection = forceDirection.normalized()
+func maintain_interaction() -> void:
+	if is_holding_object and held_object != null:
+		var force_direction = $Neck/Camera3D/InteractPos.global_transform.origin \
+			- held_object.global_transform.origin
+		force_direction = force_direction.normalized()
 		
-		heldObject.apply_central_force(forceDirection * forceStrength)
+		held_object.apply_central_force(force_direction * force_strength)
 		
-		var distance = heldObject.global_transform.origin.distance_to($Neck.global_transform.origin)
+		var distance = held_object.global_transform.origin.distance_to($Neck.global_transform.origin)
 
-		if distance > maxInteractDistance:
-			isHoldingObject = false
-			heldObject = null
+		if distance > max_interact_distance:
+			is_holding_object = false
+			held_object = null
