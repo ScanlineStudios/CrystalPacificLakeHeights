@@ -1,16 +1,30 @@
 extends CharacterBody3D
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var visibilityNotifier = $VisibleOnScreenNotifier3D
 var SPEED: float = 3.0
 var weight: float = 0.25
+var chase = false
 
 func _physics_process(delta: float) -> void:
-	var current_location: Vector3 = global_transform.origin
-	var next_location: Vector3 = nav_agent.get_next_path_position()
-	var new_velocity: Vector3 = (next_location - current_location).normalized() * SPEED
-	
-	velocity = velocity.move_toward(new_velocity, weight)
-	move_and_slide()
+	if (chase):
+		var current_location: Vector3 = global_transform.origin
+		var next_location: Vector3 = nav_agent.get_next_path_position()
+		var new_velocity: Vector3 = (next_location - current_location).normalized() * SPEED
+		
+		look_at(next_location, Vector3.UP)
+		# enemy does not look up or down
+		global_rotation.x = 0
+		
+		velocity = velocity.move_toward(new_velocity, weight)
+		move_and_slide()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	if (!visibilityNotifier.is_on_screen()):
+		chase = true
+	else:
+		chase = false
 
 
 func update_target_location(target_location: Vector3) -> void:

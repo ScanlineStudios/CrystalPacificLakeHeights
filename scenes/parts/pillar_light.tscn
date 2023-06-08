@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm7aq7yi81d6q"]
+
+[ext_resource type="PackedScene" uid="uid://bnrnj0ft2ccgi" path="res://scenes/parts/Pilar.tscn" id="1_n4mcu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eeucr"]
+emission_enabled = true
+emission = Color(0.858824, 0.8, 0.54902, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_bbagd"]
+material = SubResource("StandardMaterial3D_eeucr")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sksns"]
+
+[node name="PillarLight" type="Node3D"]
+
+[node name="Pilar" parent="." instance=ExtResource("1_n4mcu")]
+transform = Transform3D(0.2, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35599, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("SphereMesh_bbagd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_sksns")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="StaticBody3D"]
+light_color = Color(0.839216, 0.823529, 0.388235, 1)
+omni_range = 12.0
