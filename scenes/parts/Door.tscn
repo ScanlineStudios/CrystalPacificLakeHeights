@@ -1,6 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2c4vxoejn875"]
+[gd_scene load_steps=8 format=3 uid="uid://c2c4vxoejn875"]
+
+[ext_resource type="Script" path="res://scripts/Door.gd" id="1_xlrlm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31vx0"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.686275)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ec4t4"]
+material = SubResource("StandardMaterial3D_31vx0")
 size = Vector3(1, 2, 0.1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dbebd"]
@@ -17,6 +24,8 @@ size = Vector3(0.1, 2, 0.1)
 points = PackedVector3Array(-0.05, -1, -0.05, -0.05, -1, 0.05, -0.05, 1, -0.05, 0.05, -1, -0.05, 0.05, -1, 0.05, -0.05, 1, 0.05, 0.05, 1, -0.05, 0.05, 1, 0.05)
 
 [node name="Door" type="Node3D" groups=["interactable"]]
+top_level = true
+script = ExtResource("1_xlrlm")
 
 [node name="PhysicsDoor" type="RigidBody3D" parent="." groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0)
@@ -46,3 +55,5 @@ node_a = NodePath("../PhysicsDoor")
 node_b = NodePath("../DoorFrame")
 angular_limit/enable = true
 angular_limit/bias = 0.01
+motor/enable = true
+motor/target_velocity = 0.0
